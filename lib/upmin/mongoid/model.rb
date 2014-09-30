@@ -24,11 +24,13 @@ module Upmin::Mongoid
       end
 
       def default_attributes
-
+        return model_class.attribute_names.map(&:to_sym)
       end
 
+      # returns a symbol of the attributes expected type / class
+      # see http://mongoid.org/en/mongoid/v3/documents.html#fields
       def attribute_type(attribute)
-
+        return  model_class.fields[attribute.to_s].try(:type).try(:name).try(:downcase).try(:to_sym) || :unknown
       end
 
       def associations
