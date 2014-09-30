@@ -1,12 +1,13 @@
 module Upmin::Mongoid
   module Model
+    extend ActiveSupport::Concern
 
     def new_record?
-
+      return model.new_record?
     end
 
     def to_key
-
+      
     end
 
     module ClassMethods
