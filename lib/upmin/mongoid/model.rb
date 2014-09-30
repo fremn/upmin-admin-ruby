@@ -20,7 +20,7 @@ module Upmin::Mongoid
       # included in the class.
 
       def find(*args)
-
+        return model_class.find(*args)
       end
 
       def default_attributes
